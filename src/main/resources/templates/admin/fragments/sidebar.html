@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+</head>
+<body th:fragment="sidebar">
+	<div class="sidebar" data-background-color="brown"
+		data-active-color="danger">
+
+		<div class="logo">
+			<a href="http://www.creative-tim.com" class="simple-text logo-mini">
+				CT </a>
+			<p class="simple-text logo-normal" th:text=${staff.getRole_code()}></p>
+
+		</div>
+		<div class="sidebar-wrapper">
+			<div class="user">
+				<div class="photo">
+					<img src="../assets1/img/faces/face-2.jpg" />
+				</div>
+				<div class="info">
+					<a data-toggle="collapse" href="#collapseExample" class="collapsed">
+						<span th:text=${staff.getName_staff()}><b class="caret"></b>
+					</span>
+					</a>
+					<div class="clearfix"></div>
+
+					<div class="collapse" id="collapseExample">
+						<ul class="nav">
+							<li><a href="#profile"> <span class="sidebar-mini">Mp</span>
+									<span class="sidebar-normal">My Profile</span>
+							</a></li>
+							<li><a href="#edit"> <span class="sidebar-mini">Ep</span>
+									<span class="sidebar-normal">Edit Profile</span>
+							</a></li>
+							<li><a href="#settings"> <span class="sidebar-mini">S</span>
+									<span class="sidebar-normal">Settings</span>
+							</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<ul class="nav">
+
+
+				<li><a data-toggle="collapse" href="#mapsExamples1"> <i
+						class="ti-map"></i>
+						<p>
+							Quản Lý Nhân Viên <b class="caret"></b>
+						</p>
+				</a>
+					<div class="collapse" id="mapsExamples1">
+						<ul class="nav">
+							<li><a th:href="@{'/admin/staff'}"> <span
+									class="sidebar-mini">ĐT</span> <span class="sidebar-normal">Nhân
+										Viên</span>
+							</a></li>
+							<li><a th:href="@{'/admin/role'}"> <span
+									class="sidebar-mini">KM</span> <span class="sidebar-normal">Quyền</span>
+							</a></li>
+							<li><a th:href="@{'/admin/account-staff'}"> <span
+									class="sidebar-mini">KM</span> <span class="sidebar-normal">Tài
+										Khoản Nhân Viên</span>
+							</a></li>
+						</ul>
+					</div></li>
+
+
+
+				<li><a data-toggle="collapse" href="#mapsExamples2"> <i
+						class="ti-map"></i>
+						<p>
+							Quản Lý Người Dùng <b class="caret"></b>
+						</p>
+				</a>
+					<div class="collapse" id="mapsExamples2">
+						<ul class="nav">
+							<li><a th:href="@{'/admin/list-customer'}"> <span
+									class="sidebar-mini">ĐT</span> <span class="sidebar-normal">Người
+										Dùng</span>
+							</a></li>
+							<li><a th:href="@{'/admin/account-customer'}"> <span
+									class="sidebar-mini">KM</span> <span class="sidebar-normal">Tài
+										Khoản Người Dùng</span>
+							</a></li>
+
+						</ul>
+					</div></li>
+
+
+
+				<li><a data-toggle="collapse" href="#mapsExamples3"> <i
+						class="ti-map"></i>
+						<p>
+							Quản Lý Điện Thoại <b class="caret"></b>
+						</p>
+				</a>
+					<div class="collapse" id="mapsExamples3">
+						<ul class="nav">
+							<li><a href="/admin_phone/phone_product"> <span
+									class="sidebar-mini">ĐT</span> <span class="sidebar-normal">Điện
+										Thoại</span>
+							</a></li>
+							<li><a href="/admin_phone/khuyen_mai"> <span
+									class="sidebar-mini">KM</span> <span class="sidebar-normal">Khuyến
+										Mãi</span>
+							</a></li>
+							<li><a href="/admin_phone/hang_dien_thoai"> <span
+									class="sidebar-mini">HDT</span> <span class="sidebar-normal">Hãng
+										Điện Thoại</span>
+							</a></li>
+							<li><a href="/admin_phone/trang_thai_ban_san_pham"> <span
+									class="sidebar-mini">TT</span> <span class="sidebar-normal">Trạng
+										Thái Bán Sản Phẩm</span>
+							</a></li>
+							<li><a href="/admin_phone/gioi_thieu"> <span
+									class="sidebar-mini">GT</span> <span class="sidebar-normal">Bài
+										Giới Thiệu Điện Thoại</span>
+							</a></li>
+							<li><a href="/admin_phone/tinh_trang_san_pham"> <span
+									class="sidebar-mini">TT</span> <span class="sidebar-normal">Tình
+										Trạng Sản Phẩm</span>
+							</a></li>
+						</ul>
+					</div></li>
+
+
+				<li><a data-toggle="collapse" href="#tablesExamples"> <i
+						class="ti-view-list-alt"></i>
+						<p>
+							Thông Số Điện Thoại <b class="caret"></b>
+						</p>
+				</a>
+					<div class="collapse" id="tablesExamples">
+						<ul class="nav">
+							<li><a href="/admin_phone/color"> <span
+									class="sidebar-mini"><i class="ti-panel"></i></span></span> <span
+									class="sidebar-normal">Color</span>
+							</a></li>
+							<li><a href="/admin_phone/battery"> <span
+									class="sidebar-mini"><i class="ti-panel"></i></span></span> <span
+									class="sidebar-normal">Battery</span>
+							</a></li>
+							<li><a href="/admin_phone/memory"> <span
+									class="sidebar-mini"><i class="ti-panel"></i></span></span> <span
+									class="sidebar-normal">Memory</span>
+							</a></li>
+							<li><a href="/admin_phone/camera"> <span
+									class="sidebar-mini"><i class="ti-panel"></i></span></span> <span
+									class="sidebar-normal">Camera</span>
+							</a></li>
+							<li><a href="/admin_phone/ram"> <span
+									class="sidebar-mini"><i class="ti-panel"></i></span></span> <span
+									class="sidebar-normal">Ram</span>
+							</a></li>
+							<li><a href="/admin_phone/screen"> <span
+									class="sidebar-mini"><i class="ti-panel"></i></span></span> <span
+									class="sidebar-normal">Screen</span>
+							</a></li>
+						</ul>
+					</div></li>
+
+
+				<li><a data-toggle="collapse" href="#tablesExamples1"> <i
+						class="ti-view-list-alt"></i>
+						<p>
+							Hóa Đơn Khách Hàng <b class="caret"></b>
+						</p>
+				</a>
+					<div class="collapse" id="tablesExamples1">
+						<ul class="nav">
+							<li><a
+								href="/admin_phone/display-receipt-has-not-approve-yet-customer">
+									<span class="sidebar-mini"><i class="ti-panel"></i></span></span> <span
+									class="sidebar-normal">Hóa Đơn Chưa Duyệt</span>
+							</a></li>
+							<li><a href="/admin_phone/receipt-customer-approved"> <span
+									class="sidebar-mini"><i class="ti-panel"></i></span></span> <span
+									class="sidebar-normal">Hóa Đơn Đã Duyệt</span>
+							</a></li>
+							<li><a th:href="@{'/admin/status-receipt'}"> <span
+									class="sidebar-mini"><i class="ti-panel"></i></span></span> <span
+									class="sidebar-normal">Trạng Thái Hóa Đơn</span>
+							</a></li>
+						</ul>
+					</div></li>
+
+
+				<li><a data-toggle="collapse" href="#tablesExamples2"> <i
+						class="ti-view-list-alt"></i>
+						<p>
+							Bình Luận Khách Hàng <b class="caret"></b>
+						</p>
+				</a>
+					<div class="collapse" id="tablesExamples2">
+						<ul class="nav">
+							<li><a th:href="@{'/admin/all-comment-of-customer'}"> <span
+									class="sidebar-mini"><i class="ti-panel"></i></span></span> <span
+									class="sidebar-normal">Tất Cả Bình Luận</span>
+							</a></li>
+							<li><a
+								href="/admin/list-comment-of-customer-has-not-replied"> <span
+									class="sidebar-mini"><i class="ti-panel"></i></span></span> <span
+									class="sidebar-normal">Chưa Trả Lời</span>
+							</a></li>
+							<li><a
+								th:href="@{'/admin/list-comment-of-customer-replied'}"> <span
+									class="sidebar-mini"><i class="ti-panel"></i></span></span> <span
+									class="sidebar-normal">Đã Trả Lời</span>
+							</a></li>
+						</ul>
+					</div></li>
+
+
+				<li><a data-toggle="collapse" href="#tablesExamples3"> <i
+						class="ti-view-list-alt"></i>
+						<p>
+							Thống Kê <b class="caret"></b>
+						</p>
+				</a>
+					<div class="collapse" id="tablesExamples3">
+						<ul class="nav">
+							<li><a th:href="@{'/admin/statistic-phone-product'}"> <span
+									class="sidebar-mini"><i class="ti-panel"></i></span></span> <span
+									class="sidebar-normal">Sản Phẩm</span>
+							</a></li>
+							<li><a
+								href="/admin/list-comment-of-customer-has-not-replied"> <span
+									class="sidebar-mini"><i class="ti-panel"></i></span></span> <span
+									class="sidebar-normal">Khách Hàng</span>
+							</a></li>
+							<li><a
+								th:href="@{'/admin/list-comment-of-customer-replied'}"> <span
+									class="sidebar-mini"><i class="ti-panel"></i></span></span> <span
+									class="sidebar-normal">Nhân Viên</span>
+							</a></li>
+							<li><a
+								th:href="@{'/admin/list-comment-of-customer-replied'}"> <span
+									class="sidebar-mini"><i class="ti-panel"></i></span></span> <span
+									class="sidebar-normal">Tài Khoản</span>
+							</a></li>
+						</ul>
+					</div></li>
+
+
+				<li><a data-toggle="collapse" href="#tablesExamples4"> <i
+						class="ti-view-list-alt"></i>
+						<p>
+							Chức Năng Bổ Sung <b class="caret"></b>
+						</p>
+				</a>
+					<div class="collapse" id="tablesExamples4">
+						<ul class="nav">
+							<li><a th:href="@{'/admin-phone/list-locked-phone-product'}"> <span
+									class="sidebar-mini"><i class="ti-panel"></i></span></span> <span
+									class="sidebar-normal">Sản Phẩm Đã Xóa</span>
+							</a></li>
+							<li><a
+								href="/admin/list-comment-of-customer-has-not-replied"> <span
+									class="sidebar-mini"><i class="ti-panel"></i></span></span> <span
+									class="sidebar-normal">Khách Hàng</span>
+							</a></li>
+							<li><a
+								th:href="@{'/admin/list-comment-of-customer-replied'}"> <span
+									class="sidebar-mini"><i class="ti-panel"></i></span></span> <span
+									class="sidebar-normal">Nhân Viên</span>
+							</a></li>
+							<li><a
+								th:href="@{'/admin/list-comment-of-customer-replied'}"> <span
+									class="sidebar-mini"><i class="ti-panel"></i></span></span> <span
+									class="sidebar-normal">Tài Khoản</span>
+							</a></li>
+						</ul>
+					</div></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Now UI Kit Pro by Creative Tim</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/now-ui-kit.css?v=1.1.0" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="../assets/css/demo.css" rel="stylesheet" />
+</head>
+<body>
+<div class="wrapper">
+	<header th:replace="user/fragments/header:: header"></header>
+	<div class="wrapper">
+		<div class="page-header page-header-mini">
+			<div class="page-header-image" data-parallax="true"
+				style="background-image: url('../assets/img/pp-cov.jpg');"></div>
+		</div>
+		<div class="section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-5">
+						<div id="productCarousel" class="carousel slide"
+							data-ride="carousel" data-interval="8000">
+							<ol class="carousel-indicators">
+								<li data-target="#productCarousel" data-slide-to="0"
+									class="active"></li>
+								<li data-target="#productCarousel" data-slide-to="1"></li>
+								<li data-target="#productCarousel" data-slide-to="2"></li>
+								<li data-target="#productCarousel" data-slide-to="3"></li>
+							</ol>
+							<div class="carousel-inner" role="listbox">
+								<div class="carousel-item active">
+									<img class="d-block img-raised" th:src="@{${phone.image}}"
+										alt="First slide">
+								</div>
+								<div class="carousel-item"
+									th:each=" image : ${listImagePhoneProductDetail}">
+									<img class="d-block img-raised" th:src="@{${image.image}}"
+										alt="Second slide">
+								</div>
+
+							</div>
+							<a class="carousel-control-prev" href="#productCarousel"
+								role="button" data-slide="prev">
+								<button type="button"
+									class="btn btn-primary btn-icon btn-round btn-sm" name="button">
+									<i class="now-ui-icons arrows-1_minimal-left"></i>
+								</button>
+							</a> <a class="carousel-control-next" href="#productCarousel"
+								role="button" data-slide="next">
+								<button type="button"
+									class="btn btn-primary btn-icon btn-round btn-sm" name="button">
+									<i class="now-ui-icons arrows-1_minimal-right"></i>
+								</button>
+							</a>
+						</div>
+						<p class="blockquote blockquote-primary" style="color: black;">
+							"Do ảnh hưởng của việc thiếu Chip trong khâu sản xuất và sự chậm
+							trễ trong việc vận chuyển bởi tác động của COVID-19, các sản phẩm
+							iPhone sẽ về với lượng hàng ít hơn dự kiến và chậm hơn kế hoạch,
+							Hoàng Hà Mobile rất xin lỗi Quý khách." <br> <br> <small>Hoang
+								Ha Mobile</small>
+						</p>
+					</div>
+					<div class="col-md-6 ml-auto mr-auto">
+						<h2 class="title"
+							th:text="${informationPhoneProduct1.getName_phone_product()}">
+						</h2>
+						<h5 class="category"
+							th:text="${informationPhoneProduct1.getName_trang_thai()}"
+							style="color: red;"></h5>
+						<h2 class="main-price"
+							th:text="${#numbers.formatDecimal(informationPhoneProduct1.getPrice(), 0, 'COMMA', 0, 'POINT')}"></h2>
+						<div id="accordion" role="tablist" aria-multiselectable="true"
+							class="card-collapse">
+							<div class="card card-plain">
+								<div class="card-header" role="tab" id="headingThree">
+									<a class="collapsed" data-toggle="collapse"
+										data-parent="#accordion" href="#collapseThree"
+										aria-expanded="false" aria-controls="collapseThree">
+										Khuyến Mãi Của Sản Phẩm <i
+										class="now-ui-icons arrows-1_minimal-down"></i>
+									</a>
+								</div>
+								<div id="collapseThree" class="collapse" role="tabpanel"
+									aria-labelledby="headingThree">
+									<div class="card-body">
+										<ul th:each="khuyenMai : ${listKhuyenMai}">
+											<span class="badge badge-danger">Khuyến Mại </span>
+											<li th:text="${khuyenMai.nameKhuyenMai}"></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row pick-size">
+							<div class="col-lg-6 col-md-8 col-sm-6">
+								<label>Màu Sắc</label> <select class="selectpicker"
+									data-style="select-with-transition btn btn-block" data-size="7">
+									<option value="1"
+										th:text="${informationConfigurePhoneProduct.getName_color()}"
+										selected="selected"></option>
+								</select>
+							</div>
+							<div class="col-lg-6 col-md-8 col-sm-6">
+								<label>Dung Lượng Pin</label> <select class="selectpicker"
+									data-style="select-with-transition btn btn-block" data-size="7">
+									<option value="1"
+										th:text="${informationConfigurePhoneProduct.getName_battery()}"
+										selected="selected"></option>
+								</select>
+							</div>
+							<div class="col-lg-6 col-md-8 col-sm-6">
+								<br> <label>Bộ Nhớ</label> <select class="selectpicker"
+									data-style="select-with-transition btn btn-block" data-size="7">
+									<option value="1"
+										th:text="${informationConfigurePhoneProduct.getName_memory()}"
+										selected="selected"></option>
+								</select>
+							</div>
+							<div class="col-lg-6 col-md-8 col-sm-6">
+								<br> <label>Tình Trạng Điện Thoại</label> <select
+									class="selectpicker"
+									data-style="select-with-transition btn btn-block" data-size="7">
+									<option value="1"
+										th:text="${informationConfigurePhoneProduct.getName_tinh_trang()}"
+										selected="selected"></option>
+								</select>
+							</div>
+							<div class="col-lg-6 col-md-8 col-sm-6">
+								<br> <label>Ram</label> <select class="selectpicker"
+									data-style="select-with-transition btn btn-block" data-size="7">
+									<option value="1"
+										th:text="${informationConfigurePhoneProduct.getName_ram()}"
+										selected="selected"></option>
+								</select>
+							</div>
+							<div class="col-lg-6 col-md-8 col-sm-6">
+								<br> <label>Màn Hình</label> <select class="selectpicker"
+									data-style="select-with-transition btn btn-block" data-size="7">
+									<option value="1"
+										th:text="${informationConfigurePhoneProduct.getTechnology_screen()}+' '+${informationConfigurePhoneProduct.getDo_phan_giai()} "
+										selected="selected"></option>
+								</select>
+							</div>
+							<div class="col-lg-6 col-md-8 col-sm-6">
+								<br> <label>Camera</label> <select class="selectpicker"
+									data-style="select-with-transition btn btn-block" data-size="7">
+									<option value="1"
+										th:text="${informationConfigurePhoneProduct.getName_camera()}"
+										selected="selected"></option>
+								</select>
+							</div>
+						</div>
+						<div class="row justify-content-end">
+							<a class="btn btn-primary mr-3" style="color: white;">Mua
+								Ngay</a> <a class="btn btn-primary mr-3" style="color: white;"
+								th:href="@{'/customer_receipt/create_receipt_customer?id_product='+${informationPhoneProduct1.getId_phone_product()}}">Thêm
+								Vào Giỏ <i class="now-ui-icons shopping_cart-simple"></i>
+							</a>
+
+						</div>
+					</div>
+				</div>
+
+
+				<div class="section">
+					<div class="row">
+						<div class="col-md-8 ml-auto mr-auto text-center mr-5">
+							<h2 class="title">Giới Thiệu Sản Phẩm</h2>
+							<h4 class="description">Các Bài Viết Giới Thiệu Về Tính Năng
+								Sản Phẩm - Cấu Hình - Các Thông Tin Chi Tiết</h4>
+						</div>
+					</div>
+
+
+					<div class="row" th:each="gioiThieu : ${listGioiThieu}">
+						<div class="card card-plain card-blog">
+							<div class="row">
+								<div class="col-md-5">
+									<div class="card-image">
+										<img class="img img-raised rounded"
+											th:src="@{${gioiThieu.image}}" />
+									</div>
+								</div>
+								<div class="col-md-7">
+									<h6 class="category text-info"
+										th:text="${gioiThieu.loaiDienThoai}"></h6>
+									<h3 class="card-title" th:text="${gioiThieu.title}"></h3>
+									<p class="card-description" th:text="${gioiThieu.post}"></p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="section related-products" data-background-color="black">
+			<div class="container">
+				<h3 class="title text-center">Có Thể Bạn Quan Tâm</h3>
+				<div class="row">
+					<div class="col-sm-6 col-md-3"
+						th:each="listPhoneRandom : ${listProductRandom}">
+						<div class="card card-product">
+							<div class="card-image">
+								<a
+									th:href="@{'/customer_phone/phone_product_detail?id_phone_product='+${listPhoneRandom.getId_phone_product()}}">
+									<img class="img rounded"
+									th:src="@{${listPhoneRandom.getImage()}}" />
+								</a>
+							</div>
+							<div class="card-body">
+								<h6 class="category text-danger">Gợi Ý Cho Bạn</h6>
+								<h4 class="card-title">
+									<a
+										th:href="@{'/customer_phone/phone_product_detail?id_phone_product='+${listPhoneRandom.getId_phone_product()}}"
+										class="card-link"
+										th:text="${listPhoneRandom.getName_phone_product()}"></a>
+								</h4>
+
+								<div class="card-footer">
+									<div class="price-container">
+										<span class="price" th:text="${listPhoneRandom.getPrice()}"></span>
+									</div>
+									<button class="btn btn-neutral btn-icon btn-round pull-right"
+										rel="tooltip" title="" data-placement="left"
+										data-original-title="Add to wishlist">
+										<i class="now-ui-icons ui-2_favourite-28"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<div class="section section-comments">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 ml-auto mr-auto">
+						<div class="media-area">
+							<div class="row">
+								<div class="col-md-4"></div>
+								<div class="col-md-1">
+									<h3 th:text="${countTotalComment.getSoLuong()}"
+										class="title text-center"></h3>
+								</div>
+								<div class="col-md-3">
+									<h3 class="title text-center">Bình Luận</h3>
+								</div>
+								<div class="col-md-4"></div>
+							</div>
+
+
+
+							<div class="media" th:each="listMainComment:${listMainComment}">
+							<br>
+<br>
+								<a class="pull-left" href="#pablo">
+									<div class="avatar">
+										<img class="media-object img-raised" alt="Tim Picture"
+											src="/images/default-avatar.png">
+									</div>
+								</a>
+								<div class="media-body">
+									<div class="row">
+										<div class="col-md-12">
+											<h5 class="media-heading"
+												th:text="${listMainComment.getName_customer()}"></h5>
+
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<h5>
+												<small class="text-muted"
+													th:text="${listMainComment.getDate()}">&middot; </small>
+											</h5>
+										</div>
+									</div>
+
+									<p th:text="${listMainComment.getContent()}"></p>
+
+
+									<div class="media"
+										th:each="listSecondComment:${listSecondComment}"
+										th:if="${listSecondComment.getId_comment_detail()} == ${listMainComment.getId_comment()}">
+										<a class="pull-left" href="#pablo">
+											<div class="avatar">
+												<img class="media-object img-raised" alt="64x64"
+													src="/images/logo.png">
+											</div>
+										</a>
+										<div class="media-body">
+											<div class="row">
+												<div class="col-md-12">
+													<h5 class="media-heading"
+														th:text="${listSecondComment.getName_staff()}"></h5>
+												</div>
+
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<h5>
+														<small class="text-muted"
+															th:text="${listSecondComment.getDate()}">&middot;
+														</small>
+													</h5>
+												</div>
+											</div>
+
+											<p th:text="${listSecondComment.getContent()}"></p>
+
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+
+
+						</div>
+						<form method="post" th:action="@{'/admin/insert-comment-customer'}">
+							<h3 class="title text-center">Viết Bình Luận Của Bạn</h3>
+							<div class="media media-post">
+								<a class="pull-left author" href="#pablo">
+									<div class="avatar">
+										<img class="media-object img-raised" alt="64x64"
+											src="/images/default-avatar.png">
+									</div>
+								</a>
+
+								<div class="media-body">
+									<textarea class="form-control"
+										placeholder="Viết Bình Luận Tại Đây" rows="4" name="content"></textarea>
+									<div class="media-footer">
+									<input type="hidden" name="customer" th:value="${customer.getId_customer()}">
+									<input type="hidden" name="phoneProduct" th:value="${phone.idPhoneProduct}">
+										<button type="submit" class="btn btn-primary pull-right">Gửi Bình Luận</button>
+									</div>
+								</div>
+
+							</div>
+						</form>
+						<!-- end media-post -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+<footer th:replace="user/fragments/footer:: footer"></footer>
+ </div>
+</body>
+<!--   Core JS Files   -->
+<script src="../assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<script src="../assets/js/plugins/moment.min.js"></script>
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<script src="../assets/js/plugins/bootstrap-switch.js"></script>
+<!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+<script src="../assets/js/plugins/bootstrap-tagsinput.js"></script>
+<!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+<script src="../assets/js/plugins/bootstrap-selectpicker.js" type="text/javascript"></script>
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+<script src="../assets/js/plugins/jasny-bootstrap.min.js"></script>
+<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src="../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+<script src="../assets/js/plugins/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+<script src="../assets/js/now-ui-kit.js?v=1.1.0" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // the body of this function is in ../assets/js/now-ui-kit.js
+        nowuiKit.initSliders();
+    });
+</script>
+
+</html>

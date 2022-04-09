@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta charset="UTF-8">
+</head>
+<body th:fragment="header">
+<!-- Navbar -->
+     <nav class="navbar navbar-expand-lg bg-white fixed-top navbar-transparent" color-on-scroll="500">
+        <div class="container">
+            <div class="navbar-translate">
+                <a class="navbar-brand" href="/customer/home"
+                    rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom"
+                    >
+                    HoangHaMobile
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                    aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar bar1"></span>
+                    <span class="navbar-toggler-bar bar2"></span>
+                    <span class="navbar-toggler-bar bar3"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" data-nav-image="./assets/img/blurred-image-1.jpg" data-color="orange">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{'/customer/display-all-phone-product'}" >
+                            <i class="now-ui-icons design_app"></i>
+                            <p>Điện Thoại</p>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">
+                            <i class="now-ui-icons files_paper" aria-hidden="true"></i>
+                            <p>Hãng Điện Thoại</p>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" th:href="@{'/customer_phone/display_phone_by_hang_dien_thoai?idHangDienThoai='+${listHangDienThoai.idHangDienThoai} + '&nameHangDienThoai='+${listHangDienThoai.nameHangDienThoai}}" th:each="listHangDienThoai : ${listHangDienThoai}">
+                                <i class="now-ui-icons shopping_box"></i> <span th:value="${listHangDienThoai.idHangDienThoai}" th:text="${listHangDienThoai.nameHangDienThoai}"></span>
+                            </a>     
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" >
+                            <i class="now-ui-icons sport_user-run"></i>
+                            <p>Kiểm Tra Đơn Hàng</p>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li class="nav-item" th:if="${customer == null}">
+                        <a class="nav-link" href="/login" >
+                            <i class="now-ui-icons design_app"></i>
+                            <p>Đăng Nhập</p>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li class="nav-item dropdown" th:if="${customer != null}">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">
+                            <i class="now-ui-icons files_paper" aria-hidden="true"></i>
+                            <p th:text="${customer.getName_customer()}"></p>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" th:href="@{'/customer/user-page?id_user='+${customer.getId_customer()}}">
+                                <i class="now-ui-icons shopping_box"></i>Tài Khoản Của Tôi
+                            </a>                                                    
+                            <a class="dropdown-item" th:href="@{'/customer/display-check-order?idCustomer='+${customer.getId_customer()}}">
+                                <i class="now-ui-icons ui-2_chat-round"></i>Đơn Mua
+                            </a>
+                            <a class="dropdown-item" href="/logout">
+                                <i class="now-ui-icons tech_mobile"></i>Đăng Xuất
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item" th:if="${customer != null}">
+                        <a class="nav-link btn btn-primary" th:href="@{'/customer/cart?id_customer='+${customer.getId_customer()}}">
+                            <p> <i class="now-ui-icons shopping_cart-simple"></i> Giỏ Hàng</p>
+                        </a>
+                    </li>                  
+                </ul>
+            </div>
+        </div>
+    </nav> 
+    
+    
+    <!-- End Navbar -->
+</body>
+</html>
